@@ -10,8 +10,8 @@ Este projeto consiste em um chatbot inteligente que permite aos usuários terem 
 
 ### Links para Demonstrações
 
-- 🎬 [Demonstração do Chat Bot](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExemVtaTJwYTlqenQ5dXk0YzA2MTNvdDQxNmE4NTZ4ZGcwa212ajE1ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/JAHWtZuUsqsTjMLcUQ/giphy.gif)
-- 🎬 [Demonstração do Chat Bot](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjM5ejlndnowbnVsNGQyOGhtZ3I2emtwZjg3bjViZHdrMGtwcW82biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LFIWdwJm1r8wfu1Bq5/giphy.gif)
+![App](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExemVtaTJwYTlqenQ5dXk0YzA2MTNvdDQxNmE4NTZ4ZGcwa212ajE1ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/JAHWtZuUsqsTjMLcUQ/giphy.gif)
+![App](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjM5ejlndnowbnVsNGQyOGhtZ3I2emtwZjg3bjViZHdrMGtwcW82biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LFIWdwJm1r8wfu1Bq5/giphy.gif)
 
 ## 🚀 Tecnologias Utilizadas
 
