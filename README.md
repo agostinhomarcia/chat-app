@@ -10,7 +10,9 @@ Este projeto consiste em um chatbot inteligente que permite aos usuários terem 
 
 ### Mobile App
 
-[![Demonstração do App](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExemVtaTJwYTlqenQ5dXk0YzA2MTNvdDQxNmE4NTZ4ZGcwa212ajE1ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/JAHWtZuUsqsTjMLcUQ/giphy.gif)](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExemVtaTJwYTlqenQ5dXk0YzA2MTNvdDQxNmE4NTZ4ZGcwa212ajE1ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/JAHWtZuUsqsTjMLcUQ/giphy.gif)
+[![App](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExemVtaTJwYTlqenQ5dXk0YzA2MTNvdDQxNmE4NTZ4ZGcwa212ajE1ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/JAHWtZuUsqsTjMLcUQ/giphy.gif)]
+
+[App](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExemVtaTJwYTlqenQ5dXk0YzA2MTNvdDQxNmE4NTZ4ZGcwa212ajE1ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/JAHWtZuUsqsTjMLcUQ/giphy.gif)
 
 ## 🚀 Tecnologias Utilizadas
 
