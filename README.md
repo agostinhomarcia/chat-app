@@ -93,6 +93,4 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ## 📫 Contato
 
-Márcia Agostinho - [LinkedIn](https://www.linkedin.com/in/marcia-agostinho/)
-
-Link do Projeto: [https://github.com/agostinhomarcia/chat-app](https://github.com/agostinhomarcia/chat-app)
+Márcia Agostinho - [LinkedIn](https://www.linkedin.com/in/marcia-agostinho-developer/)
