@@ -1,3 +1,5 @@
+type ContextType = keyof typeof contextResponses;
+
 export const contextResponses = {
   ola: [
     "👋 Olá! Sou o assistente virtual. Como posso ajudar você hoje?",
@@ -90,10 +92,16 @@ export const contextResponses = {
     "🤔 Hmm, não captei. Pode reformular sua pergunta?",
     "😊 Perdão, mas não compreendi. Pode ser mais específico?",
     "💭 Não entendi completamente. Pode me dar mais detalhes?"
+  ],
+  futebol: [
+    "⚽ Desculpe, não acompanho resultados de futebol em tempo real. Que tal consultar um site especializado como o GE?",
+    "🏆 Não tenho acesso a informações atualizadas sobre futebol. Recomendo verificar em sites esportivos!",
+    "⚽ Futebol? Legal! Mas infelizmente não posso te dar informações sobre jogos ou resultados. Tente o Sofascore ou GE para isso!",
+    "🎯 Para informações precisas sobre futebol, placar de jogos e campeonatos, sugiro consultar sites especializados como ESPN ou GE."
   ]
 };
 
-export const detectContext = (message: string): string => {
+export const detectContext = (message: string): ContextType => {
   const lowerMessage = message.toLowerCase();
   
   if (lowerMessage.includes('?')) return 'duvida';
@@ -125,11 +133,11 @@ export const detectContext = (message: string): string => {
   if (lowerMessage.includes('problema') || lowerMessage.includes('ajuda')) {
     return 'problema';
   }
-  if (lowerMessage.includes('vai chover') || 
-      lowerMessage.includes('tempo hoje') || 
-      lowerMessage.includes('previsão do tempo') ||
-      lowerMessage.includes('clima')) {
+  if (lowerMessage.match(/\b(vai chover|tempo hoje|previsão|clima|temperatura|chuva)\b/)) {
     return 'clima';
+  }
+  if (lowerMessage.match(/\b(futebol|jogo|gol|campeonato|time|placar|resultado)\b/)) {
+    return 'futebol';
   }
   
   return 'default';
@@ -144,44 +152,7 @@ export const getResponseDelay = (message: string): number => {
 };
 
 export const getBotResponse = (userMessage: string) => {
-  const lowerMessage = userMessage.toLowerCase();
-  
-  if (lowerMessage.includes('ola') || lowerMessage.includes('oi')) {
-    return contextResponses.ola[Math.floor(Math.random() * contextResponses.ola.length)];
-  }
-  if (lowerMessage.includes('bom dia')) {
-    return contextResponses.bom_dia[Math.floor(Math.random() * contextResponses.bom_dia.length)];
-  }
-  if (lowerMessage.includes('boa tarde')) {
-    return contextResponses.boa_tarde[Math.floor(Math.random() * contextResponses.boa_tarde.length)];
-  }
-  if (lowerMessage.includes('boa noite')) {
-    return contextResponses.boa_noite[Math.floor(Math.random() * contextResponses.boa_noite.length)];
-  }
-  if (lowerMessage.includes('como vai') || lowerMessage.includes('tudo bem')) {
-    return contextResponses.humor[Math.floor(Math.random() * contextResponses.humor.length)];
-  }
-  if (lowerMessage.includes('tchau') || lowerMessage.includes('até') || lowerMessage.includes('adeus')) {
-    return contextResponses.despedida[Math.floor(Math.random() * contextResponses.despedida.length)];
-  }
-  if (lowerMessage.includes('ruim') || lowerMessage.includes('péssimo') || lowerMessage.includes('insatisfeito')) {
-    return contextResponses.reclamacao[Math.floor(Math.random() * contextResponses.reclamacao.length)];
-  }
-  if (lowerMessage.includes('parabéns') || lowerMessage.includes('excelente') || lowerMessage.includes('ótimo')) {
-    return contextResponses.elogio[Math.floor(Math.random() * contextResponses.elogio.length)];
-  }
-  if (lowerMessage.includes('problema') || lowerMessage.includes('ajuda')) {
-    return contextResponses.problema[Math.floor(Math.random() * contextResponses.problema.length)];
-  }
-  if (lowerMessage.includes('obrigado') || lowerMessage.includes('obrigada')) {
-    return contextResponses.obrigado[Math.floor(Math.random() * contextResponses.obrigado.length)];
-  }
-  if (lowerMessage.includes('vai chover') || 
-      lowerMessage.includes('tempo hoje') || 
-      lowerMessage.includes('previsão do tempo') ||
-      lowerMessage.includes('clima')) {
-    return contextResponses.clima[Math.floor(Math.random() * contextResponses.clima.length)];
-  }
-  
-  return contextResponses.default[Math.floor(Math.random() * contextResponses.default.length)];
+  const context = detectContext(userMessage);
+  const responses = contextResponses[context];
+  return responses[Math.floor(Math.random() * responses.length)];
 }; 
