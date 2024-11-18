@@ -10,7 +10,7 @@ import {
 import io from "socket.io-client";
 import { getBotResponse } from "./chatResponses";
 
-const socket = io("http://192.168.1.6:3000"); // Substitua pelo IP local do seu computador
+const socket = io("http://192.168.1.6:3000");
 
 const App = () => {
   const [message, setMessage] = useState("");
