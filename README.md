@@ -31,8 +31,6 @@ Este projeto consiste em um chatbot inteligente que permite aos usuários terem 
 - Node.js
 - Express
 - Socket.io
-- TypeScript
-- MongoDB
 
 ## ⚙️ Funcionalidades
 
@@ -51,7 +49,6 @@ Este projeto consiste em um chatbot inteligente que permite aos usuários terem 
 - Node.js
 - npm ou yarn
 - Expo CLI
-- MongoDB
 
 ### Instalação e Execução
 
