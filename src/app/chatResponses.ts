@@ -38,36 +38,19 @@ export const contextResponses = {
     "👋 Até mais! Volte sempre que precisar!"
   ],
   reclamacao: [
-    "Sinto muito que você esteja insatisfeito. Como posso ajudar a resolver isso?",
-    "Peço desculpas pelo inconveniente. Pode me explicar melhor o que houve?",
-    "Sua satisfação é importante para nós. Vamos tentar resolver isso juntos?"
+    "😔 Sinto muito que você esteja insatisfeito. Como posso ajudar a resolver isso?",
+    "🙏 Peço desculpas pelo inconveniente. Pode me explicar melhor o que houve?",
+    "💫 Sua satisfação é importante para nós. Vamos tentar resolver isso juntos?"
   ],
   elogio: [
-    "Muito obrigado! Fico feliz em poder ajudar!",
-    "Que bom que você está satisfeito! É um prazer auxiliar!",
-    "Agradeço o elogio! Continuarei me esforçando para ajudar sempre!"
+    "😊 Muito obrigado! Fico feliz em poder ajudar!",
+    "🌟 Que bom que você está satisfeito! É um prazer auxiliar!",
+    "✨ Agradeço o elogio! Continuarei me esforçando para ajudar sempre!"
   ],
   problema: [
-    "Entendo sua preocupação. Pode me dar mais detalhes sobre o problema?",
-    "Vou fazer o possível para ajudar com seu problema. Pode me explicar melhor?",
-    "Que tipo de problema você está enfrentando? Vamos resolver juntos."
-  ],
-  obrigado: [
-    "🙏 Por nada! Estou sempre à disposição.",
-    "😊 Fico feliz em poder ajudar!",
-    "✨ Disponha! Se precisar de mais alguma coisa, é só chamar.",
-    "🌟 O prazer é meu em poder ajudar!"
-  ],
-  default: [
-    "🤔 Hmm, interessante. Pode me contar mais sobre isso?",
-    "📝 Entendo. Como posso ajudar com essa situação?",
-    "💡 Estou aqui para ajudar. Pode elaborar um pouco mais?"
-  ],
-  clima: [
-    "Desculpe, não tenho acesso a informações meteorológicas em tempo real. Que tal consultar um app de previsão do tempo?",
-    "Não posso prever o tempo com certeza, mas recomendo verificar em sites especializados como INMET ou Climatempo!",
-    "Infelizmente não sou meteorologista! 😅 Para saber sobre o clima, sugiro consultar um serviço de previsão do tempo.",
-    "Essa é uma boa pergunta! Mas sou apenas um assistente virtual e não tenho acesso a dados meteorológicos."
+    "🤝 Entendo sua preocupação. Pode me dar mais detalhes sobre o problema?",
+    "💪 Vou fazer o possível para ajudar com seu problema. Pode me explicar melhor?",
+    "🔍 Que tipo de problema você está enfrentando? Vamos resolver juntos."
   ],
   agradecimento: [
     "🙏 Por nada! Estou sempre à disposição.",
@@ -93,52 +76,55 @@ export const contextResponses = {
     "😊 Perdão, mas não compreendi. Pode ser mais específico?",
     "💭 Não entendi completamente. Pode me dar mais detalhes?"
   ],
+  clima: [
+    "🌦️ Desculpe, não tenho acesso a informações meteorológicas em tempo real. Que tal consultar um app de previsão do tempo?",
+    "☔ Não posso prever o tempo com certeza, mas recomendo verificar em sites especializados como INMET ou Climatempo!",
+    "🌡️ Infelizmente não sou meteorologista! 😅 Para saber sobre o clima, sugiro consultar um serviço de previsão do tempo.",
+    "🌤️ Essa é uma boa pergunta! Mas sou apenas um assistente virtual e não tenho acesso a dados meteorológicos."
+  ],
   futebol: [
     "⚽ Desculpe, não acompanho resultados de futebol em tempo real. Que tal consultar um site especializado como o GE?",
     "🏆 Não tenho acesso a informações atualizadas sobre futebol. Recomendo verificar em sites esportivos!",
     "⚽ Futebol? Legal! Mas infelizmente não posso te dar informações sobre jogos ou resultados. Tente o Sofascore ou GE para isso!",
     "🎯 Para informações precisas sobre futebol, placar de jogos e campeonatos, sugiro consultar sites especializados como ESPN ou GE."
+  ],
+  default: [
+    "🤔 Hmm, interessante. Pode me contar mais sobre isso?",
+    "📝 Entendo. Como posso ajudar com essa situação?",
+    "💡 Estou aqui para ajudar. Pode elaborar um pouco mais?",
+    "🎯 Me conte mais para eu poder te ajudar da melhor forma!"
   ]
 };
 
 export const detectContext = (message: string): ContextType => {
-  const lowerMessage = message.toLowerCase();
+  const lowerMessage = message.toLowerCase().trim();
+  
+  if (lowerMessage.match(/\b(ola|olá|oi|hey|ei|e ai|eai)\b/)) return 'ola';
+  if (lowerMessage.match(/\b(bom dia|bomdia)\b/)) return 'bom_dia';
+  if (lowerMessage.match(/\b(boa tarde|boatarde)\b/)) return 'boa_tarde';
+  if (lowerMessage.match(/\b(boa noite|boanoite)\b/)) return 'boa_noite';
+  
+  if (lowerMessage.match(/\b(como vai|tudo bem|como está|como esta|como voce esta|como você está)\b/)) return 'humor';
+  
+  if (lowerMessage.match(/\b(tchau|adeus|até|ate|flw|falou|fui)\b/)) return 'despedida';
+  
+  if (lowerMessage.match(/\b(obrigad|valeu|thanks|vlw|agradeç|agrade[cç]|grat)\b/)) return 'agradecimento';
+  
+  if (lowerMessage.match(/\b(ok|beleza|certo|entendi|compreendi|blz|tranquilo)\b/)) return 'confirmacao';
+  
+  if (lowerMessage.match(/\b(ruim|péssimo|pessimo|horrível|horrivel|insatisfeito|mal|inadequado)\b/)) return 'reclamacao';
+  
+  if (lowerMessage.match(/\b(parabéns|parabens|excelente|ótimo|otimo|bom|muito bom|legal|top|massa)\b/)) return 'elogio';
+  
+  if (lowerMessage.match(/\b(problema|ajuda|socorro|help|dificuldade|erro)\b/)) return 'problema';
+  
+  if (lowerMessage.match(/\b(vai chover|tempo hoje|previsão|previsao|clima|temperatura|chuva|sol|nublado)\b/)) return 'clima';
+  
+  if (lowerMessage.match(/\b(futebol|jogo|gol|campeonato|time|placar|resultado|partida)\b/)) return 'futebol';
   
   if (lowerMessage.includes('?')) return 'duvida';
-  if (lowerMessage.includes('obrigad')) return 'agradecimento';
-  if (lowerMessage.includes('ok') || lowerMessage.includes('certo')) return 'confirmacao';
-  if (lowerMessage.includes('tchau') || lowerMessage.includes('até')) return 'despedida';
   
-  if (lowerMessage.includes('ola') || lowerMessage.includes('oi')) {
-    return 'ola';
-  }
-  if (lowerMessage.includes('bom dia')) {
-    return 'bom_dia';
-  }
-  if (lowerMessage.includes('boa tarde')) {
-    return 'boa_tarde';
-  }
-  if (lowerMessage.includes('boa noite')) {
-    return 'boa_noite';
-  }
-  if (lowerMessage.includes('como vai') || lowerMessage.includes('tudo bem')) {
-    return 'humor';
-  }
-  if (lowerMessage.includes('ruim') || lowerMessage.includes('péssimo') || lowerMessage.includes('insatisfeito')) {
-    return 'reclamacao';
-  }
-  if (lowerMessage.includes('parabéns') || lowerMessage.includes('excelente') || lowerMessage.includes('ótimo')) {
-    return 'elogio';
-  }
-  if (lowerMessage.includes('problema') || lowerMessage.includes('ajuda')) {
-    return 'problema';
-  }
-  if (lowerMessage.match(/\b(vai chover|tempo hoje|previsão|clima|temperatura|chuva)\b/)) {
-    return 'clima';
-  }
-  if (lowerMessage.match(/\b(futebol|jogo|gol|campeonato|time|placar|resultado)\b/)) {
-    return 'futebol';
-  }
+  if (lowerMessage.match(/\b(não entendi|nao entendi|confuso|confused|what)\b/)) return 'nao_entendi';
   
   return 'default';
 };
