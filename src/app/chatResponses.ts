@@ -108,7 +108,9 @@ export const detectContext = (message: string): ContextType => {
   
   if (lowerMessage.match(/\b(tchau|adeus|até|ate|flw|falou|fui)\b/)) return 'despedida';
   
-  if (lowerMessage.match(/\b(obrigad|valeu|thanks|vlw|agradeç|agrade[cç]|grat)\b/)) return 'agradecimento';
+  if (lowerMessage.match(/\b(obrigado|obrigada|obg|vlw|valeu|thanks|thx|agradeço|agradecido|gratidão|grato|grata)\b/)) {
+    return 'agradecimento';
+  }
   
   if (lowerMessage.match(/\b(ok|beleza|certo|entendi|compreendi|blz|tranquilo)\b/)) return 'confirmacao';
   
